@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90s Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="bezel-branding">CHUNKER</div>
+        <button class="btn-power" id="powerBtn" onclick="togglePower()"><i class="fas fa-power-off"></i></button>
+        <div class="display-container is-off" id="mainDisplayContainer">
+            <div class="startup-line"></div>
+            <div class="screen-glare"></div>
+            <div class="screen-overlay"></div>
+            <div class="scanlines"></div>
+            <div class="screen-lens"></div>
+            <div class="display-content">
+                <div id="unitSelector" class="unit-selector hidden">
+                    <select id="fromUnit" onchange="convertUnit()"></select>
+                    <span class="to-arrow">→</span>
+                    <select id="toUnit" onchange="convertUnit()"></select>
+                </div>
+                <div class="display" id="display">0</div>
+                <div class="secondary-display" id="secondaryDisplay"></div>
+                <div class="lexicon-display" id="lexiconDisplay"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="scientific-buttons">
+                <button class="btn scientific cv-btn mobile-cv" onclick="toggleConverterMode()">CV</button>
+                <button class="btn scientific" onclick="scientificFunction('sin')">sin</button>
+                <button class="btn scientific" onclick="scientificFunction('cos')">cos</button>
+                <button class="btn scientific" onclick="scientificFunction('tan')">tan</button>
+                <button class="btn scientific" onclick="scientificFunction('log')">log</button>
+                <button class="btn scientific" onclick="scientificFunction('ln')">ln</button>
+                <button class="btn scientific" onclick="scientificFunction('sqrt')">√</button>
+                <button class="btn scientific" onclick="scientificFunction('pow')">x^y</button>
+                <button class="btn scientific" onclick="scientificFunction('pi')">π</button>
+                <button class="btn scientific" onclick="scientificFunction('e')">e</button>
+                <button class="btn scientific" onclick="scientificFunction('parens')">( )</button>
+                <button class="btn scientific" onclick="scientificFunction('factorial')">!</button>
+            </div>
+            <div class="right-section">
+                <div class="memory-row">
+                    <button class="btn scientific cv-btn desktop-cv" onclick="toggleConverterMode()">CV</button>
+                    <button class="btn mem" onclick="memoryClear()">MC</button>
+                    <button class="btn mem" onclick="memoryRecall()">MR</button>
+                    <button class="btn mem" onclick="memorySubtract()">M-</button>
+                    <button class="btn mem" onclick="memoryAdd()">M+</button>
+                    <button class="btn mem" onclick="toggleSign()">±</button>
+                    <button class="btn mem btn-shift" onclick="toggleShift()">Shift</button>
+                    <button class="btn mem btn-alpha" onclick="toggleAlpha()">Alpha</button>
+                </div>
+                <div class="button-grid">
+                <button class="btn clear" onclick="clearAll()">C</button>
+                <button class="btn clear-entry" onclick="clearEntry()">CE</button>
+                <button class="btn operator" onclick="appendOperator('/')">÷</button>
+                <button class="btn operator" onclick="appendOperator('*')">×</button>
+                
+                <button class="btn number" onclick="appendNumber('7')">7</button>
+                <button class="btn number" onclick="appendNumber('8')">8</button>
+                <button class="btn number" onclick="appendNumber('9')">9</button>
+                <button class="btn operator" onclick="appendOperator('-')">-</button>
+                
+                <button class="btn number" onclick="appendNumber('4')">4</button>
+                <button class="btn number" onclick="appendNumber('5')">5</button>
+                <button class="btn number" onclick="appendNumber('6')">6</button>
+                <button class="btn operator" onclick="appendOperator('+')">+</button>
+                
+                <button class="btn number" onclick="appendNumber('1')">1</button>
+                <button class="btn number" onclick="appendNumber('2')">2</button>
+                <button class="btn number" onclick="appendNumber('3')">3</button>
+                <button class="btn equals" onclick="calculate()">=</button>
+                
+                <button class="btn number" onclick="appendNumber('0')">0</button>
+                <button class="btn decimal" onclick="appendDecimal()">.</button>
+                <button class="btn lexicon" onclick="lexicon()"><i class="fas fa-book"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="calculator.js"></script>
+</body>
+</html>
